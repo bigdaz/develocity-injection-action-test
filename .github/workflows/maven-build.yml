@@ -2,6 +2,7 @@ name: Maven Build
 
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -12,6 +13,8 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 11
+    - name: Inject Develocity for Maven
+      uses: bigdaz/develocity-injection-action/dv-inject-maven@main
     - name: Build with Maven
       working-directory: maven-example
       run: mvn -v
