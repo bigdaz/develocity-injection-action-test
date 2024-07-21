@@ -15,6 +15,11 @@ jobs:
         java-version: 11
     - name: Inject Develocity for Maven
       uses: bigdaz/develocity-injection-action/dv-inject-maven@main
+      with:
+        project-root-directory: maven-example
+
     - name: Build with Maven
       working-directory: maven-example
-      run: mvn verify
+      run: mvn -B verify
+      env:
+        DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
