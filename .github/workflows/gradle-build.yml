@@ -13,10 +13,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 11
+
     - name: Inject Develocity for Gradle
       uses: bigdaz/develocity-injection-action/dv-inject-gradle@main
+      with:
+        develocity-access-key: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
+
     - name: Build with Gradle
       working-directory: gradle-example
       run: ./gradlew build
-      env:
-        DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}

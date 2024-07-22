@@ -13,10 +13,12 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 11
+
     - name: Inject Develocity for Maven
       uses: bigdaz/develocity-injection-action/dv-inject-maven@main
       with:
         project-root-directory: maven-example
+        develocity-access-key: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
 
     - name: Build with Maven
       working-directory: maven-example
