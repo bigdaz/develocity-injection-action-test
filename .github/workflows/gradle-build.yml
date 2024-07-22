@@ -13,7 +13,7 @@ jobs:
       with:
         distribution: 'temurin'
         java-version: 11
-    - name: Inject Develocity for Maven
+    - name: Inject Develocity for Gradle
       uses: bigdaz/develocity-injection-action/dv-inject-gradle@main
     - name: Build with Gradle
       working-directory: gradle-example
