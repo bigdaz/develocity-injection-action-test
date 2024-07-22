@@ -23,5 +23,3 @@ jobs:
     - name: Build with Maven
       working-directory: maven-example
       run: ./mvnw -B verify
-      env:
-        DEVELOCITY_ACCESS_KEY: ${{ secrets.DEVELOCITY_ACCESS_KEY }}
